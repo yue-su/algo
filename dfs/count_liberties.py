@@ -84,7 +84,7 @@ def countLiberties(board, x, y):
             counter += 1
             visited.add((row, col))
             return
-        
+
         # only two posiblities left, either same color or oppsite
         if board[row][col] != color:
             return
@@ -94,6 +94,8 @@ def countLiberties(board, x, y):
         for delta in deltas:
             new_row, new_col = row + delta[0], col + delta[1]
             helper(new_row, new_col)
+            
+        visited.remove((row, col))
 
     helper(x, y)
 
