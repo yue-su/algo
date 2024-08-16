@@ -80,3 +80,39 @@ print(pendulum(3, 12))
 
 # d = 5, t=7
 #
+def pendulum(d, t):
+  # 1. get point on repeating pendulum swing positions
+  t = t % (4 * d - 1)
+
+  # 2. get point on sin wave t maps to
+  return -d + abs(t - 2 * d)
+
+# for i in range(25):
+  # print(f"time: {i}, position: {pendulum(5, i)}")
+
+
+'''
+Follow-up:
+What if the pendulum reduces by 1 distance per full swing? 
+For example, for distance 3, the pendulum would go 
+3, 2, 1, 0, -1, -2, -3, -2, -1, 0, 1, 2, 1, 0, -1, -2, -1, 0, 1, 0, -1, 0 
+and then stay on 0 from this point forward.
+'''
+
+
+def dampeningPendulum(d, t):
+  while d > 0 and t > 4 * d - 1:
+    # 1. decrement t by time it took to go through full pendulum swing
+    t -= 4 * d - 1
+
+    # 2. decrement d by 1 (dampen)
+    d -= 1
+
+  if d == 0:
+    return 0
+  # find point on sin wave d points to
+  return -d + abs(t - 2 * d)
+
+
+for i in range(100):
+  print(f"time: {i}, position: {dampeningPendulum(5, i)}")
