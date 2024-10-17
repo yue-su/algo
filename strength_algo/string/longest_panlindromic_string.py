@@ -13,6 +13,8 @@ from test_case import Test
 # ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 
 
+
+
 def lps2(input: str) -> str:
     # Write your code here.
 
